@@ -1,0 +1,544 @@
+/*from google font 
+font-familyl: "work sans", sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/*start variables*/
+:root{
+    --mainColor:#10cab7;
+}
+/*end variables*/
+
+/* start global rules */
+*{
+    box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      scroll-behavior: smooth;
+} 
+body{
+    font-family: "Work Sans", sans-serif;
+}
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    /*
+    width: 600px;
+    here we don't need the width of container 
+    bacause on mobiles we want our devices take the 
+    full screen*/  
+}
+
+/*small*/
+@media (min-width:768px){
+.container{
+    width: 750px;
+    
+}
+}
+/*medium*/
+@media (min-width:992px){
+    .container{
+        width: 970px;
+         
+       
+    }
+    }
+/*large*/
+@media (min-width:1200px){
+    .container{
+        width: 1170px;
+         
+    }
+    
+    }
+/* end global rules */
+/* Start Components*/
+.special-heading{
+    font-size: 100px;
+    color:#ebeced;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+/*+ here means the next selector we did that in order to don't affect any order paragraphe */
+.special-heading + p {
+    text-align: center;
+    margin-top: -29px;
+     
+    font-size: 20px;
+    color: #7979;
+}
+ 
+/*in order to avoid growint up the font-weight of the special heading in all media queries we prefer to do it once here in this media*/
+ 
+@media (max-width:767px){
+    .special-heading{
+        font-size: 60px;
+    }
+    .special-heading + p {
+        margin-top: -25px;
+        
+    }
+}
+
+
+/* end Components*/
+/*Start header*/
+.header {
+    padding: 20px;
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo{
+    width: 60px;
+    height: 45px;
+}
+/*
+why here the position is relative
+to controle that 
+.header .links ul::before*/
+.header .container .links{
+    position: relative;
+}
+.header .container .links:hover .icon span:nth-child(2){
+width: 100%;
+}
+.header .container .links .icon{
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+     
+
+}
+.header .container .links .icon span{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+     margin-bottom: 5px;
+   /*in order the see the spans otherwhise 
+   you won't see anyone of them*/
+}
+.header .container .links .icon span:nth-child(2){
+    width: 60%;
+}
+.header .links ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.781);
+    border-radius: 8px;
+    position: absolute;
+    right: 0;
+     min-width: 200px;
+     /*to toke the ul a litle bit away from the span*/
+     top: calc(100% + 15px);
+     /* it is disabled for a while
+     display: none;*/
+     transition: 0.3s;
+     z-index: 1;
+       
+}
+.header .links:hover ul{
+    display: block;
+     
+}
+ .header ul:hover{
+    background-color: white;
+ }
+.header .links ul::before{
+    content: "";
+    position: absolute;
+   border-style: solid;
+   border-width: 10px;
+   border-color: transparent transparent aquamarine transparent;
+   right: 5px;
+   top: -20px;
+}
+ 
+.header .links ul a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color:black;
+    transition :0.3s;
+}
+.header .links ul a:hover{
+    padding-left: 30px;
+}
+.header .links ul li:not(:last-child) {
+   border-bottom: 2px solid rgb(46, 233, 170);
+}
+/*end header*/
+ 
+/*Start landing Section-->*/
+ .landing {
+    background-image: url(gb.jpg);
+    height: calc(100vh - 85px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: center center;
+    position: relative;
+ }
+ .landing .intro-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.616), white);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 2px 2px 3px aqua;
+   
+
+
+ }
+ 
+ 
+ .intro-text h1{
+    margin-bottom: 15px;
+ }
+ .intro-text p{
+    
+     
+    font-size: 20px;
+    font-weight: 600;
+ }
+/*end landing Section-->*/
+
+.features{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #e0d3d3;
+    text-align: center;
+    
+}
+.features .container {
+    display: grid;
+     
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+     gap: 20px;
+
+}
+.container .feat{
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.904);
+    border:2px solid #3f3e3e ;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+.container .feat:hover {
+    transform: scale(1.02);
+    box-shadow: -2px -5px 3px rgb(172, 168, 168);
+    border:2px solid rgba(75, 73, 73, 0.863);
+
+}
+.container .feat:hover i {
+    color:aqua;
+   
+
+}
+
+
+  .feat  i  {
+    display: block;
+    color:rgb(15, 194, 194);
+    text-align: center;
+    margin: 15px 0;
+  }
+   
+.feat h3{
+    margin:30px 0;
+    text-align: center;
+    font-weight: 800;
+
+}
+.feat p{
+    text-align: justify;
+    text-indent: 20px;
+    color:#222222;
+    font-size: 18px;
+    line-height: 1.7;
+}
+/*start services*/
+
+.services{
+    padding: 60px 0;
+}
+.services .services-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 100px;
+}
+.services .services-content .srv{
+    display: flex;
+    margin-bottom: 30px;
+   
+    
+    
+}
+@media (max-width:767px){
+    .services .services-content .srv{
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+.services .services-content .srv i {
+    color:var(--mainColor);
+    flex-basis: 60px;
+     
+     
+}
+.services .services-content .srv .text {
+     
+    flex: 1;
+     
+}
+.services .services-content .srv .text h3{
+    margin-top: 0 0 20px ;
+}
+.services .services-content .srv .text p {
+    font-weight: 300px;
+    line-height: 1.8;
+}
+ 
+.services .services-content .image{
+    text-align: center;
+    position: relative;
+    
+}
+ 
+.services .services-content .image::before{
+    content: "";
+    background-color: #0b645b;
+    width: 100px;
+    height: calc(100% + 100px);
+    position: absolute;
+    right: 0;
+    top: -50px;
+    z-index: -1;
+}
+
+.services .services-content .image img{
+    width: 260px;
+     transition: 0.5s;
+     
+}
+.services .services-content .image img:hover{
+   transform: scale(1.1);
+     
+}
+@media (max-width:1199px){
+    .image-column{
+        display: none;
+    }
+
+}
+/*start portfolio*/
+.Portfolio{
+    background-color: azure;
+    padding: 60px 0;
+}
+.Portfolio .cards{
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+.cards .card{
+    background-color: rgb(223, 223, 247);
+    border-start-start-radius: 10px;
+    border-start-end-radius:10px;
+    transition: 0.3s;
+}
+.cards .card:hover{
+   box-shadow: 4px 4px 7px black;
+}
+ 
+.cards .card img{
+    width: 100%;
+    border-start-start-radius: 10px;
+    border-start-end-radius:10px;
+    transition: 0.3s;
+}
+.cards .card img:hover {
+     filter: contrast(1.2);
+}
+@media  (max-width:767px) {
+    .cards .card img{
+        height: 350px;
+    }
+    
+}
+.card .info{
+    padding: 15px;
+}
+.card .info h3{
+    margin: 0;
+
+}
+.card .info p {
+    margin-top: 10px;
+     
+}
+.Portfolio .bottom {
+    text-align: center;
+}
+.Portfolio .bottom a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 600;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+.Portfolio .bottom a:hover{
+    background-color: rgb(205, 205, 245);
+    border-radius: 8px;
+    
+}
+@media (max-width :659px)
+ {
+    .card .info p {
+        text-align: center;
+         
+    }
+}
+/*start about*/
+ .about{
+    padding : 100px 0;
+ }
+ .about .about-content{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+ }
+ @media (max-width:991px){
+    .about .about-content{
+        flex-direction: column;
+        text-align: center;
+         
+    }    
+
+ }
+ .about .about-content .photo{
+     position: relative;
+      width: 250px;
+      height: 375px;
+      
+ }
+ @media (max-width:991px){
+    .about .about-content .photo{
+        margin:0 auto 30px auto;
+    }
+ }
+ .about .about-content .photo::before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -20px;
+    background-color: #ddd;
+    z-index: -1;
+ }
+ .about .about-content .photo::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+     
+    border-left: 80px solid aqua;
+    border-bottom: 80px solid aqua;
+    top: -40px;
+    right: -150px;
+    z-index: -1;
+    
+ }
+ @media (max-width:991px){
+    .about .about-content .photo::before,
+    .about .about-content .photo::after{
+        display: none;
+    }
+
+ }
+ 
+ .about .about-content .text{
+    /*here why especially 500px so 250px 
+    for the photo then the rest for space-between*/
+   flex-basis: calc(100% - 500px);
+ }
+ .about .about-content .text p:first-of-type{
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 2;
+    margin-bottom: 30px;
+ }
+ .about .about-content .text p:last-of-type{
+   font-size: 17;
+   line-height: 1.8;
+   margin-top: 30px;
+ }
+ .about .about-content .text hr {
+     
+    border-color: aqua;
+    width: 50%;
+ 
+ }
+ /*end about*/
+ /*Start contact*/
+ .contact{
+    background-color: #f7eaea8f;
+ }
+ .contact .about-contact{
+    padding: 100px 0;
+    text-align: center;
+
+ }
+ .contact .about-contact h2{
+    color:#0b645b;
+ }
+ .contact .about-contact a{
+    display: block;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    color:rgb(5, 185, 185);
+    margin: 20px 0 20px 15px;
+ }
+  .contact .about-contact p{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .contact .about-contact .social i{
+    color:#0b645b;
+    margin-inline: 5px;
+  }
+ /*End contact*/
+ /* start footer*/
+ footer{
+   
+   background-color: rgb(22, 87, 16);
+   padding: 20px;
+   color:white;
+   font-weight: 500;
+   text-align: center;
+   text-transform: capitalize;
+ }
+ footer .spec{
+    color:aqua;
+    font-weight: 600;
+ }
+ /* end footer*/
